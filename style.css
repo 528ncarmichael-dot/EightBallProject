@@ -110,33 +110,71 @@ body {
 }
 
 .ball {
-  width: 250px;
-  height: 250px;
-  margin: 1.5rem auto;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 25px #0006;
+    width: 250px;
+    height: 250px;
+    margin: 1.5rem auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Shiny black plastic */
+    background:
+        radial-gradient(ellipse at 30% 18%, #666 0%, transparent 25%),
+        radial-gradient(ellipse at 70% 85%, #000 0%, #111 45%, #292929 75%, #050505 100%);
+
+    /* Realistic lighting and depth */
+    box-shadow:
+        inset -15px -18px 25px #000,
+        inset 8px 8px 15px #ffffff30,
+        0 15px 30px #0008,
+        0 4px 8px #0005;
+
+    position: relative;
+}
+
+.ball::before {
+    content: "";
+    position: absolute;
+    width: 105px;
+    height: 35px;
+    top: 28px;
+    left: 42px;
+    border-radius: 50%;
+    background: linear-gradient(white, transparent);
+    opacity: 0.18;
+    filter: blur(8px);
+    transform: rotate(-35deg);
 }
 
 .window {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #244caa, #06112e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+
+    background:
+        radial-gradient(circle at 35% 30%, #315fc0, #102d75 55%, #02091e 100%);
+
+    box-shadow:
+        inset 0 5px 12px #0009,
+        inset 0 -5px 12px #ffffff20,
+        0 0 8px #000;
+
+    border: 3px solid #080808;
 }
 
 .answer {
-  color: #fff;
-  font-size: 0.9rem;
-  text-align: center;
-  opacity: 0;
-  animation: fadeIn 2s ease forwards;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px 4px #000;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
 }
 
 @keyframes fadeIn {
