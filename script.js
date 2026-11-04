@@ -16,12 +16,12 @@ function askEightBall() {
     document.getElementById("greeting").textContent = "Hello, " + userName + "!"
   }
 
-  document.getElementById("questionOut").textContent = "";
+  document.getElementById('questionOut').textContent = "You asked: " + userQuestion;
 
-  if (userQuestion === "") {
-    document.getElementById("questionOut").textContent = "";
-    document.getElementById("answer").textContent = "The 8 Ball needs a question";
-    document.getElementById("answerType").innerHTML = "";
+  if (userQuestion === '') {
+    document.getElementById('questionOut').textContent = '';
+    document.getElementById('answer').textContent = 'The 8 Ball needs a question';
+    document.getElementById('answerType').innerHTML = '';
     return;
   }
 
@@ -39,4 +39,18 @@ function askEightBall() {
     case 6: eightBall = "Do not count on it"; break;
     case 7: eightBall = "My sources say no"; break;
   }
+
+  document.getElementById("answer").textContent = eightBall;
+
+  if (randomNumber <= 2) {
+    document.getElementById("answerType").innerHTML = '<span class="yes">YES</span>';
+  } else if (randomNumber <= 5) {
+    document.getElementById("answerType").innerHTML = '<span class="maybe">MAYBE</span>';
+  } else {
+    document.getElementById("answerType").innerHTML = '<span class="no">NO</span>';
+  }
+
+  document.getElementById("answer").style.animation = "none";
+  document.getElementById("answer").offsetHeight;
+  document.getElementById("answer").style.animation = "fadeIn 2s ease forwards";
 }
