@@ -1,213 +1,112 @@
-/* ==========================================
-   Magic 8 Ball: starter styles
-   Change these colors and fonts to match your theme.
-   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --brand: #3b2a6b;        /* navbar, hero, button */
-  --brand-light: #ece8f6;  /* page background */
-  --accent: #f4b942;       /* step numbers, highlights */
-  --text: #1f1d2b;
-  --font: "Poppins", Arial, sans-serif;
+    --brand: #090b18;
+    --brand-light: #0c1020;
+    --accent: #8b7cff;
+    --text: #f1f1fa;
+    --font: "Inter", Arial, sans-serif;
+
+    --purple-glow: #7665ff;
+    --blue-glow: #367dff;
+    --card: #14182a;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-  font-family: var(--font);
-  background: var(--brand-light);
-  color: var(--text);
+    font-family: var(--font);
+    background:
+        radial-gradient(ellipse at 50% 0%, #20234a 0%, transparent 55%),
+        #080a13;
+    color: var(--text);
+    min-height: 100vh;
 }
 
-/* ---------- Navbar ---------- */
 .site-nav {
-  background: var(--brand);
+    background: rgba(8, 10, 22, 0.9);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(139, 124, 255, 0.2);
+    padding: 1rem 0;
 }
 
 .site-nav .navbar-brand {
-  color: #fff;
-  font-weight: 700;
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #7665ff80;
 }
 
 .nav-tagline {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.9rem;
+    color: #999bb9;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
 
-/* ---------- Hero ---------- */
 .hero {
-  background: var(--brand);
-  color: #fff;
-  padding: 3rem 0 4rem;
+    background:
+        radial-gradient(ellipse at 50% 100%, #28245b 0%, transparent 65%),
+        linear-gradient(135deg, #101329, #080a13);
+    color: white;
+    padding: 5rem 0 4rem;
+    text-align: center;
+    border-bottom: 1px solid #7665ff25;
 }
 
 .hero h1 {
-  font-weight: 700;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-shadow: 0 0 30px #7665ff70;
 }
 
-/* ---------- How It Works ---------- */
+.hero p {
+    color: #b7b8d0;
+    font-size: 1.1rem;
+}
+
 .section-title {
-  font-weight: 600;
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+    margin-bottom: 1.5rem;
 }
 
 .step-card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    background: linear-gradient(145deg, #191d34, #101426);
+    color: white;
+    border: 1px solid #ffffff12;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px #0005;
+    transition: 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-6px);
+    border-color: #7665ff80;
+    box-shadow: 0 10px 35px #7665ff20;
+}
+
+.step-card p {
+    color: #b9bad0;
 }
 
 .step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--text);
-  font-weight: 700;
-}
-
-/* ---------- Main cards ---------- */
-.main-card {
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.form-label {
-  font-weight: 600;
-}
-
-.btn-ask {
-  background: var(--brand);
-  color: #fff;
-  font-weight: 600;
-  padding: 0.75rem;
-  border-radius: 10px;
-}
-
-.btn-ask:hover,
-.btn-ask:focus-visible {
-  background: var(--accent);
-  color: var(--text);
-}
-
-.btn-ask:active,
-.btn-ask:focus {
-  background: var(--brand);
-  color: #fff;
-}
-
-/* ---------- Results ---------- */
-.greeting {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.question-out {
-  min-height: 1.5rem;
-  color: #555;
-}
-
-.ball {
-    width: 250px;
-    height: 250px;
-    margin: 1.5rem auto;
-    border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    /* Shiny black plastic */
-    background:
-        radial-gradient(ellipse at 30% 18%, #666 0%, transparent 25%),
-        radial-gradient(ellipse at 70% 85%, #000 0%, #111 45%, #292929 75%, #050505 100%);
-
-    /* Realistic lighting and depth */
-    box-shadow:
-        inset -15px -18px 25px #000,
-        inset 8px 8px 15px #ffffff30,
-        0 15px 30px #0008,
-        0 4px 8px #0005;
-
-    position: relative;
-}
-
-.ball::before {
-    content: "";
-    position: absolute;
-    width: 105px;
-    height: 35px;
-    top: 28px;
-    left: 42px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: linear-gradient(white, transparent);
-    opacity: 0.18;
-    filter: blur(8px);
-    transform: rotate(-35deg);
-}
-
-.window {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px;
-
-    background:
-        radial-gradient(circle at 35% 30%, #315fc0, #102d75 55%, #02091e 100%);
-
-    box-shadow:
-        inset 0 5px 12px #0009,
-        inset 0 -5px 12px #ffffff20,
-        0 0 8px #000;
-
-    border: 3px solid #080808;
-}
-
-.answer {
+    background: linear-gradient(135deg, #a394ff, #6551ed);
     color: white;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 0 1px 4px #000;
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-/* ---------- Answer type badges ----------
-   Your innerHTML can use these classes. */
-.answer-type span {
-  display: inline-block;
-  padding: 0.4rem 1.25rem;
-  border-radius: 999px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #fff;
-}
-
-.yes {
-  background: #2e7d32;
-}
-
-.maybe {
-  background: #b26a00;
-}
-
-.no {
-  background: #c62828;
-}
-
-/* ---------- Footer ---------- */
-.site-footer {
-  background: var(--brand);
-  color: rgba(255, 255, 255, 0.8);
+    font-weight: 800;
+    box-shadow: 0 0 20px #7665ff70;
 }
